@@ -3,12 +3,13 @@ import dynamic from 'next/dynamic';
 import { Header } from "../components/Header";
 import Sidebar from "../components/Sidebar";
 import { theme } from "../styles/theme";
+import { ApexOptions } from "apexcharts";
 
 const Chart = dynamic(() => import('react-apexcharts'), {
   ssr:false,
 })
 
-const options = {
+const options: ApexOptions = {
   chart: {
     toolbar: {
       show: false,
@@ -78,7 +79,6 @@ export default function Dashboard () {
             pb="4"
           >
             <Text fontSize="lg" mb="4">Inscritos da semana</Text>
-            {/* @ts-ignore */}
             <Chart options={options} series={series} type="area" height={160}/>
           </Box>
           
@@ -89,7 +89,6 @@ export default function Dashboard () {
             pb="4"
           >
             <Text fontSize="lg" mb="4">Taxa de abertura</Text>
-            {/* @ts-ignore */}
             <Chart options={options} series={series} type="area" height={160}/>
           </Box>
         </SimpleGrid>
